@@ -44,27 +44,72 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+import React from 'react'
+import styled from 'styled-components'
+import tw from 'twin.macro'
+import Logo from '../Logo'
+import {Link} from "react-scroll"
 
-### Code Splitting
+const NavBarContainer = styled.div`
+    color: red;
+    ${tw`
+        flex
+        h-20
+        pl-6
+        pr-6
+        pt-4
+        border-b-2
+        border-gray-200
+        border-opacity-50
+        items-center
+        self-center
+    `}
+`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+const NavItems = tw.ul`
+    list-none
+    w-full
+    h-auto
+    lg: h-full
+    flex
+    lg:ml-20
+    justify-center
+    items-center
+`
 
-### Analyzing the Bundle Size
+const NavItem = tw.li`
+    lg:mr-8
+    flex
+    items-center
+    justify-center
+    min-h-full
+    text-white
+    cursor-pointer
+    font-medium
+    text-lg
+    lg:text-base
+    transition-colors
+    transition-duration(300ms)
+    hover:text-gray-300
+    box-content
+    mb-2
+    lg:mb-0
+`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+export const NavBar = () => {
+    const navItems = <NavItems>
+        <NavItem>
+            <Link to ="home" >Home</Link>
+            <Link to ="explore" >Explore</Link>
+            <Link to ="travelPlaces" >Travel Places</Link>
+        </NavItem>
+    </NavItems>
+    return (
+      <NavBarContainer>
+           <Logo/>
+            <NavItems></NavItems>
+       </NavBarContainer>
+    )
+}
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
